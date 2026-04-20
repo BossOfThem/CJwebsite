@@ -5,11 +5,17 @@ export function Quote() {
   return (
     <section
       id="quote"
-      className="relative bg-concrete text-[var(--bone)] py-24 md:py-36 scroll-mt-20"
+      data-surface="dark"
+      className="relative bg-concrete text-[var(--bone)] py-24 md:py-36 scroll-mt-20 paper-grain-dark"
       aria-labelledby="quote-heading"
     >
       <div className="mx-auto max-w-6xl px-6 md:px-10 grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-start">
         <div>
+          <div className="inline-flex items-center gap-3 mb-6 font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--bone)]/70 border-t-2 border-[var(--amber-on-dark)] pt-3">
+            <span>Est. # Q-{new Date().getFullYear()}</span>
+            <span className="text-[var(--bone)]/30">|</span>
+            <span>No charge</span>
+          </div>
           <p className="eyebrow">03 &nbsp;/ &nbsp;Get a quote</p>
           <h2
             id="quote-heading"

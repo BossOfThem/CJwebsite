@@ -54,30 +54,36 @@ export function Testimonials() {
           {REVIEWS.map((r, i) => (
             <li
               key={r.name}
-              className="relative flex flex-col border border-[var(--line)] bg-[var(--paper)] p-8 rounded-sm"
+              className="relative flex flex-col border border-[var(--line-strong)] bg-[var(--paper)] p-8 rounded-sm shadow-[6px_6px_0_0_var(--line)]"
             >
               <span
                 aria-hidden
-                className="absolute -top-5 left-6 font-display text-[90px] leading-none text-[var(--amber-on-light)] select-none"
+                className="absolute -top-8 left-4 font-display text-[120px] leading-none text-[var(--amber-on-light)] select-none"
+                style={{ fontStyle: "italic" }}
               >
                 &ldquo;
               </span>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between relative z-[1]">
                 <div className="flex items-center gap-0.5" aria-label="5 out of 5 stars">
                   {Array.from({ length: 5 }).map((_, s) => (
-                    <Star key={s} className="size-3.5 text-[var(--amber-on-light)] fill-current" aria-hidden />
+                    <Star key={s} className="size-4 text-[var(--amber-on-light)] fill-current" aria-hidden />
                   ))}
                 </div>
-                <p className="font-mono text-[11px] tabular-nums tracking-[0.2em] text-[var(--ink-mute)]">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
+                <span className="stamp text-[var(--amber-on-light)]">
+                  Review &middot; {String(i + 1).padStart(2, "0")}
+                </span>
               </div>
-              <blockquote className="mt-4 font-display text-[22px] md:text-[24px] leading-[1.15] text-[var(--ink)]">
+              <blockquote className="mt-5 font-display text-[24px] md:text-[28px] leading-[1.1] text-[var(--ink)]">
                 {r.quote}
               </blockquote>
-              <div className="mt-8 pt-5 border-t border-[var(--line)] font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--ink-soft)]">
-                <div className="text-[var(--ink)]">{r.name}</div>
-                <div className="mt-1 text-[var(--ink-mute)]">{r.where} &middot; {r.job}</div>
+              <div className="mt-8 pt-5 border-t border-[var(--line)] flex items-baseline justify-between gap-4">
+                <div className="font-mono text-[11px] uppercase tracking-[0.18em]">
+                  <div className="text-[var(--ink)] font-bold">{r.name}</div>
+                  <div className="mt-1 text-[var(--ink-mute)]">{r.where} &middot; {r.job}</div>
+                </div>
+                <span className="font-display text-[32px] leading-none text-[var(--line-strong)] tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
               </div>
             </li>
           ))}

@@ -31,7 +31,14 @@ export async function Header() {
           <Link href="/#quote" className="hover:text-[var(--amber)]">Quote</Link>
           <Link href="/#area" className="hover:text-[var(--amber)]">Area</Link>
           <Link href="/#faq" className="hover:text-[var(--amber)]">FAQ</Link>
+          <Link href="/es" className="hover:text-[var(--amber)]" lang="es">ES</Link>
         </nav>
+
+        {/* License chip — desktop only */}
+        <div className="hidden lg:flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase text-[var(--bone)]/65 border-l border-[var(--bone)]/15 pl-5">
+          <span className="size-1.5 rounded-full bg-[var(--amber)]" aria-hidden />
+          {BUSINESS.credentials.licenseNumber}
+        </div>
 
         <div className="flex items-center gap-2">
           {user ? (

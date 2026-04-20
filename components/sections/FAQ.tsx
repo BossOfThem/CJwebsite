@@ -65,9 +65,9 @@ export function FAQ() {
               className="border-b border-[var(--line)] last:border-b-0"
             >
               <Accordion.Header>
-                <Accordion.Trigger className="group w-full flex items-center justify-between gap-6 py-6 text-left">
-                  <span className="flex items-baseline gap-5">
-                    <span className="font-mono text-[11px] tabular-nums tracking-[0.2em] text-[var(--amber-2)]">
+                <Accordion.Trigger className="group w-full flex items-center justify-between gap-6 py-7 text-left hover:bg-[var(--paper)] transition-colors">
+                  <span className="flex items-baseline gap-6">
+                    <span className="font-display text-[32px] md:text-[40px] leading-none tabular-nums text-[var(--amber-on-light)]/60 group-data-[state=open]:text-[var(--amber-on-light)] transition-colors">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="font-display text-[22px] md:text-[28px] leading-tight text-[var(--ink)]">
@@ -75,13 +75,13 @@ export function FAQ() {
                     </span>
                   </span>
                   <Plus
-                    className="size-5 shrink-0 transition-transform group-data-[state=open]:rotate-45 text-[var(--amber-2)]"
+                    className="size-5 shrink-0 transition-transform group-data-[state=open]:rotate-45 text-[var(--amber-on-light)]"
                     aria-hidden
                   />
                 </Accordion.Trigger>
               </Accordion.Header>
               <Accordion.Content className="overflow-hidden data-[state=open]:animate-[accordion-down_240ms_ease-out] data-[state=closed]:animate-[accordion-up_200ms_ease-out]">
-                <p className="pb-6 pl-[46px] pr-10 text-[15px] text-[var(--ink-soft)] leading-relaxed">
+                <p className="pb-7 pl-[64px] md:pl-[72px] pr-10 text-[16px] text-[var(--ink-soft)] leading-relaxed font-sans border-l-2 border-[var(--amber-on-light)]/30 ml-6 md:ml-7">
                   {f.a}
                 </p>
               </Accordion.Content>
