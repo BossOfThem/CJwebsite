@@ -1,5 +1,6 @@
 import { Header } from "@/components/header/Header";
 import { Hero } from "@/components/sections/Hero";
+import { Consult } from "@/components/sections/Consult";
 import { Services } from "@/components/sections/Services";
 import { Trust } from "@/components/sections/Trust";
 import { Gallery } from "@/components/sections/Gallery";
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <main id="main" className="flex-1">
         <Hero />
+        <Consult />
         <Services />
         <Trust />
         <Quote />

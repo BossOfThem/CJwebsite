@@ -70,8 +70,8 @@ const U = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 export const IMAGES = {
-  // Full-bleed hero: crew on a jobsite, warm tone, room for overlay copy
-  hero: U("photo-1504307651254-35680f356dfd", 1920),
+  // Full-bleed hero: residential handyman feel, warm tone, room for overlay copy
+  hero: U("photo-1589939705384-5185137a7f0f", 1920),
   // Marquee strip under hero
   marquee: [
     U("photo-1581094794329-c8112a89af12", 800),
@@ -91,14 +91,14 @@ export const IMAGES = {
     doors: U("photo-1558618666-fcd25c85cd64", 900),
     other: U("photo-1503594384566-461fe158e797", 900),
   },
-  // Recent-work gallery (all distinct, no pressure-washing stock)
+  // Recent-work gallery (small-job mix, varied neighborhoods)
   gallery: [
-    { src: U("photo-1552321554-5fefe8c9ef14", 1400), tag: "Tile",         label: "Walk-in shower, Miramar" },
-    { src: U("photo-1581094794329-c8112a89af12", 1000), tag: "Home repair", label: "Drywall + paint refresh" },
-    { src: U("photo-1584622650111-993a426fbf0a", 1000), tag: "Bathroom",    label: "Guest bath remodel" },
-    { src: U("photo-1558618666-fcd25c85cd64", 1000), tag: "Doors",        label: "Impact slider install" },
-    { src: U("photo-1541888946425-d81bb19240f5", 1000), tag: "Framing",    label: "Covered patio addition" },
-    { src: U("photo-1572883454114-1cf0031ede2a", 1000), tag: "Trim",        label: "Baseboard + crown" },
+    { src: U("photo-1552321554-5fefe8c9ef14", 1400), tag: "Tile",         label: "Backsplash re-tile, Pembroke Pines" },
+    { src: U("photo-1581094794329-c8112a89af12", 1000), tag: "Home repair", label: "Water-damaged drywall, Hollywood" },
+    { src: U("photo-1584622650111-993a426fbf0a", 1000), tag: "Bathroom",    label: "Vanity + fixtures, Miramar" },
+    { src: U("photo-1558618666-fcd25c85cd64", 1000), tag: "Doors",        label: "Hinge + weatherstrip rebuild, Davie" },
+    { src: U("photo-1572883454114-1cf0031ede2a", 1000), tag: "Trim",        label: "Baseboard + crown, Weston" },
+    { src: U("photo-1590856029826-c7a73142bbf1", 1000), tag: "Pressure",    label: "Driveway restoration, Fort Lauderdale" },
   ],
 } as const;
 
@@ -128,18 +128,11 @@ export const SERVICES: Service[] = [
     accent: "from-amber-500/20 to-amber-500/5",
   },
   {
-    key: "construction",
-    title: "General Construction",
-    blurb: "Additions, framing, and structural work done to code.",
-    bullets: ["Framing & additions", "Decks & porches", "Permits handled", "Licensed crew"],
-    accent: "from-sky-500/20 to-sky-500/5",
-  },
-  {
-    key: "pressure-washing",
-    title: "Pressure Washing",
-    blurb: "Driveways, siding, decks — back to looking new.",
-    bullets: ["Soft-wash siding", "Concrete restoration", "Deck prep", "Gutter cleaning"],
-    accent: "from-cyan-500/20 to-cyan-500/5",
+    key: "doors",
+    title: "Doors & Entries",
+    blurb: "Interior, exterior, sliding, storm — installed right.",
+    bullets: ["Exterior doors", "Interior doors", "Sliding & patio", "Storm doors"],
+    accent: "from-rose-500/20 to-rose-500/5",
   },
   {
     key: "tile",
@@ -156,11 +149,18 @@ export const SERVICES: Service[] = [
     accent: "from-violet-500/20 to-violet-500/5",
   },
   {
-    key: "doors",
-    title: "Doors & Entries",
-    blurb: "Interior, exterior, sliding, storm — installed right.",
-    bullets: ["Exterior doors", "Interior doors", "Sliding & patio", "Storm doors"],
-    accent: "from-rose-500/20 to-rose-500/5",
+    key: "pressure-washing",
+    title: "Pressure Washing",
+    blurb: "Driveways, siding, decks — back to looking new.",
+    bullets: ["Soft-wash siding", "Concrete restoration", "Deck prep", "Gutter cleaning"],
+    accent: "from-cyan-500/20 to-cyan-500/5",
+  },
+  {
+    key: "construction",
+    title: "Additions & Framing",
+    blurb: "Covered patios, room additions, framing — permitted and finished clean.",
+    bullets: ["Room additions", "Covered patios", "Framing", "Permits handled"],
+    accent: "from-sky-500/20 to-sky-500/5",
   },
   {
     key: "other",
