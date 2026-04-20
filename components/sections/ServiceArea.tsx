@@ -65,14 +65,19 @@ export function ServiceArea() {
           >
             {BUSINESS.serviceAreas.map((town, i) => (
               <li
-                key={town}
+                key={town.slug}
                 className="flex items-baseline gap-3 font-mono text-[13px] uppercase tracking-[0.14em] text-[var(--ink)]"
               >
                 <span className="size-1.5 rounded-full bg-[var(--amber-on-light)] shrink-0" aria-hidden />
                 <span className="tabular-nums text-[var(--ink-mute)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span>{town}</span>
+                <a
+                  href={`/service-area/${town.slug}`}
+                  className="hover:text-[var(--amber-on-light)] underline-offset-4 hover:underline"
+                >
+                  {town.name}
+                </a>
               </li>
             ))}
           </ul>
