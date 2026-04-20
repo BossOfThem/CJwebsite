@@ -55,6 +55,7 @@ export function FAQ() {
         <Accordion.Root
           type="single"
           collapsible
+          defaultValue="item-0"
           className="border-y border-[var(--line-strong)]"
         >
           {FAQS.map((f, i) => (

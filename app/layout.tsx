@@ -3,8 +3,8 @@ import { Inter, Oswald, JetBrains_Mono, Lora } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { BUSINESS } from "@/lib/config";
-import { ContactDock } from "@/components/contact/ContactDock";
 import { BackToTop } from "@/components/nav/BackToTop";
+import { StickyCallBar } from "@/components/nav/StickyCallBar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -77,7 +77,7 @@ export default function RootLayout({
         </a>
         {children}
         <BackToTop />
-        <ContactDock />
+        <StickyCallBar />
         {tawkId && tawkWidget && (
           <Script id="tawkto-widget" strategy="afterInteractive">
             {`var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

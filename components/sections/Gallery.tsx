@@ -29,11 +29,8 @@ export function Gallery() {
               className={[
                 "relative overflow-hidden rounded-sm border border-[var(--line)] bg-[var(--ink)] group",
                 i === 0 && "md:col-span-2 md:row-span-2 aspect-square md:aspect-auto",
-                i === 1 && "aspect-[4/5]",
-                i === 2 && "aspect-[4/5]",
-                i === 3 && "aspect-[4/5]",
-                i === 4 && "aspect-[4/5]",
-                i === 5 && "aspect-[4/5]",
+                i >= 1 && "aspect-[4/5]",
+                i >= 2 && "duotone-ink",
               ].filter(Boolean).join(" ")}
             >
               <img

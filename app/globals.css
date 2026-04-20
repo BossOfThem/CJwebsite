@@ -262,6 +262,44 @@ input, select, textarea,
   background-position: top;
   height: 10px;
 }
+.rough-top-dark {
+  --c: var(--shadow-bg);
+  background-image:
+    linear-gradient(135deg, var(--c) 25%, transparent 25%),
+    linear-gradient(225deg, var(--c) 25%, transparent 25%);
+  background-size: 16px 10px;
+  background-repeat: repeat-x;
+  background-position: top;
+  height: 10px;
+}
+.rough-bottom {
+  --c: var(--paper);
+  background-image:
+    linear-gradient(315deg, var(--c) 25%, transparent 25%),
+    linear-gradient(45deg, var(--c) 25%, transparent 25%);
+  background-size: 16px 10px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  height: 10px;
+}
+
+/* duotone imagery — unifies mixed-quality placeholders into wheat→ink palette */
+.duotone-ink {
+  position: relative;
+  background: var(--ink);
+}
+.duotone-ink > img {
+  filter: grayscale(1) contrast(1.08) brightness(0.92);
+  mix-blend-mode: luminosity;
+  opacity: 0.88;
+}
+.duotone-ink::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(224,160,51,0.18) 0%, rgba(20,17,13,0.35) 100%);
+  mix-blend-mode: color;
+  pointer-events: none;
+}
 
 /* reduced motion */
 @media (prefers-reduced-motion: reduce) {

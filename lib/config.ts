@@ -49,6 +49,16 @@ export const BUSINESS = {
   },
   tawkPropertyId: process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID || "",
   tawkWidgetId: process.env.NEXT_PUBLIC_TAWK_WIDGET_ID || "",
+  reviews: {
+    // TODO: Carlos to wire Google Business Profile
+    count: 0,
+    average: 0,
+    url: "",
+  },
+  seasonal: {
+    stormInspection: true,
+    hurricaneWindow: "Jun 1 – Nov 30",
+  },
 } as const;
 
 /**
