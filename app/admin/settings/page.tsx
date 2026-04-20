@@ -72,9 +72,9 @@ function Card({
   title, icon: Icon, children,
 }: { title: string; icon: React.ComponentType<{ className?: string }>; children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl border border-[var(--line)] bg-[var(--bg-raised)] p-5">
+    <div className="rounded-sm border border-[var(--line)] bg-[var(--bg-raised)] p-5">
       <div className="flex items-center gap-2 mb-3">
-        <span className="inline-flex size-8 items-center justify-center rounded-lg bg-[var(--brand)]/10 text-[var(--brand)]">
+        <span className="inline-flex size-8 items-center justify-center rounded-sm bg-[var(--brand)]/10 text-[var(--brand)]">
           <Icon className="size-4" aria-hidden />
         </span>
         <h2 className="font-bold">{title}</h2>

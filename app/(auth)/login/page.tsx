@@ -37,7 +37,7 @@ export default async function LoginPage({
         />
       </div>
 
-      <div className="mt-10 rounded-xl bg-[var(--bg-raised)] border border-[var(--line)] p-4 text-sm text-[var(--ink-soft)]">
+      <div className="mt-10 rounded-sm bg-[var(--bg-raised)] border border-[var(--line)] p-4 text-sm text-[var(--ink-soft)]">
         <p className="font-semibold text-[var(--ink)]">Alpha placeholder</p>
         <p className="mt-1">
           A demo user is seeded as <code className="font-mono">demo@cj.local.dev</code>{" "}

@@ -24,7 +24,7 @@ export default async function UsersAdminPage() {
       <h1 className="text-3xl font-black tracking-tight">Users</h1>
       <p className="text-[var(--ink-soft)] mt-1">{users.length} accounts on file</p>
 
-      <div className="mt-6 overflow-x-auto rounded-2xl border border-[var(--line)] bg-[var(--bg-raised)]">
+      <div className="mt-6 overflow-x-auto rounded-sm border border-[var(--line)] bg-[var(--bg-raised)]">
         <table className="w-full text-left text-sm">
           <thead className="text-xs uppercase tracking-wider text-[var(--ink-mute)] bg-[var(--bg)]">
             <tr>

@@ -25,7 +25,7 @@ export default async function AccountPage() {
             <p className="text-[var(--ink-soft)] mt-1">{session.user.email}</p>
           </div>
           <form action={signOutAction}>
-            <button className="inline-flex items-center gap-2 rounded-xl border border-[var(--line)] px-4 py-2.5 font-semibold hover:bg-[var(--bg-raised)]">
+            <button className="inline-flex items-center gap-2 rounded-sm border border-[var(--line)] px-4 py-2.5 font-semibold hover:bg-[var(--bg-raised)]">
               <LogOut className="size-4" aria-hidden /> Sign out
             </button>
           </form>
@@ -49,14 +49,14 @@ export default async function AccountPage() {
               Whatever's easiest. We're usually around.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              <a href={`tel:${BUSINESS.phone.raw}`} className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] text-white px-3.5 py-2 font-semibold">
+              <a href={`tel:${BUSINESS.phone.raw}`} className="inline-flex items-center gap-2 rounded-sm bg-[var(--brand)] text-white px-3.5 py-2 font-semibold">
                 <Phone className="size-4" aria-hidden /> Call
               </a>
               <a
                 href={buildWhatsAppLink(prefillForService())}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] text-white px-3.5 py-2 font-semibold"
+                className="inline-flex items-center gap-2 rounded-sm bg-[#25D366] text-white px-3.5 py-2 font-semibold"
               >
                 <MessageCircle className="size-4" aria-hidden /> WhatsApp
               </a>
@@ -70,9 +70,9 @@ export default async function AccountPage() {
 
 function Card({ icon: Icon, title, children }: { icon: React.ComponentType<{ className?: string }>; title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl border border-[var(--line)] bg-[var(--bg-raised)] p-6">
+    <div className="rounded-sm border border-[var(--line)] bg-[var(--bg-raised)] p-6">
       <div className="flex items-center gap-2 mb-3">
-        <span className="inline-flex size-9 items-center justify-center rounded-lg bg-[var(--brand)]/10 text-[var(--brand)]">
+        <span className="inline-flex size-9 items-center justify-center rounded-sm bg-[var(--brand)]/10 text-[var(--brand)]">
           <Icon className="size-4" aria-hidden />
         </span>
         <h2 className="font-bold">{title}</h2>

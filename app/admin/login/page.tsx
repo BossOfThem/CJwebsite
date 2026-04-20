@@ -17,7 +17,7 @@ export default async function AdminLoginPage({
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-[var(--ink)] text-white">
       <div className="w-full max-w-md rounded-[var(--radius-xl)] bg-[var(--bg-raised)] text-[var(--ink)] p-8 shadow-[var(--shadow-lg)]">
-        <div className="inline-flex size-12 items-center justify-center rounded-xl bg-[var(--brand)] text-white">
+        <div className="inline-flex size-12 items-center justify-center rounded-sm bg-[var(--brand)] text-white">
           <ShieldCheck className="size-6" aria-hidden />
         </div>
         <h1 className="mt-5 text-2xl font-black tracking-tight">Staff sign-in</h1>

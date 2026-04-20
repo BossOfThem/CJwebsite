@@ -18,7 +18,7 @@ export default async function LeadsPage() {
       </p>
 
       {leads.length === 0 ? (
-        <div className="mt-8 rounded-2xl border-2 border-dashed border-[var(--line)] p-10 text-center">
+        <div className="mt-8 rounded-sm border-2 border-dashed border-[var(--line)] p-10 text-center">
           <p className="font-semibold">No submissions yet.</p>
           <p className="mt-1 text-sm text-[var(--ink-soft)]">
             Live leads will appear here the moment the form is submitted.
@@ -27,7 +27,7 @@ export default async function LeadsPage() {
       ) : (
         <ul className="mt-6 grid gap-3" role="list">
           {leads.map((l) => (
-            <li key={l.id} className="rounded-2xl border border-[var(--line)] bg-[var(--bg-raised)] p-5">
+            <li key={l.id} className="rounded-sm border border-[var(--line)] bg-[var(--bg-raised)] p-5">
               <div className="flex items-start justify-between gap-3 flex-wrap">
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
@@ -47,12 +47,12 @@ export default async function LeadsPage() {
                   </div>
                 </div>
                 <div className="flex gap-1.5 shrink-0">
-                  <a href={`tel:${l.contact}`} className="inline-flex size-9 items-center justify-center rounded-lg border border-[var(--line)] hover:border-[var(--brand)]" aria-label="Call"><Phone className="size-4" aria-hidden /></a>
-                  <a href={`sms:${l.contact}`} className="inline-flex size-9 items-center justify-center rounded-lg border border-[var(--line)] hover:border-[var(--brand)]" aria-label="SMS"><MessageCircle className="size-4" aria-hidden /></a>
-                  <a href={`mailto:${l.contact}`} className="inline-flex size-9 items-center justify-center rounded-lg border border-[var(--line)] hover:border-[var(--brand)]" aria-label="Email"><Mail className="size-4" aria-hidden /></a>
+                  <a href={`tel:${l.contact}`} className="inline-flex size-9 items-center justify-center rounded-sm border border-[var(--line)] hover:border-[var(--brand)]" aria-label="Call"><Phone className="size-4" aria-hidden /></a>
+                  <a href={`sms:${l.contact}`} className="inline-flex size-9 items-center justify-center rounded-sm border border-[var(--line)] hover:border-[var(--brand)]" aria-label="SMS"><MessageCircle className="size-4" aria-hidden /></a>
+                  <a href={`mailto:${l.contact}`} className="inline-flex size-9 items-center justify-center rounded-sm border border-[var(--line)] hover:border-[var(--brand)]" aria-label="Email"><Mail className="size-4" aria-hidden /></a>
                 </div>
               </div>
-              <p className="mt-3 text-[var(--ink)] whitespace-pre-wrap bg-[var(--bg)] rounded-xl p-3 text-[0.95rem]">
+              <p className="mt-3 text-[var(--ink)] whitespace-pre-wrap bg-[var(--bg)] rounded-sm p-3 text-[0.95rem]">
                 {l.details}
               </p>
             </li>

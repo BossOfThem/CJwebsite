@@ -139,7 +139,7 @@ export function QuoteWizard() {
       {mode === "quick" && (
         <fieldset className="space-y-5">
           <div>
-            <legend className="font-display text-[30px] md:text-[34px] leading-tight mb-2 text-[var(--ink)]">
+            <legend className="font-display text-[22px] md:text-[26px] leading-tight mb-2 text-[var(--ink)]">
               Just tell us what you need.
             </legend>
             <p className="text-[14px] text-[var(--ink-soft)]">
@@ -224,7 +224,7 @@ export function QuoteWizard() {
       {/* STEP 1 — service */}
       {step === 0 && (
         <fieldset>
-          <legend className="font-display text-[30px] md:text-[34px] leading-tight mb-2 text-[var(--ink)]">What kind of work?</legend>
+          <legend className="font-display text-[22px] md:text-[26px] leading-tight mb-2 text-[var(--ink)]">What kind of work?</legend>
           <p className="text-[14px] text-[var(--ink-soft)] mb-6">Pick the closest match. Tell us more next.</p>
           <Controller
             control={control}
@@ -262,7 +262,7 @@ export function QuoteWizard() {
       {/* STEP 2 — details */}
       {step === 1 && (
         <fieldset>
-          <legend className="font-display text-[30px] md:text-[34px] leading-tight mb-2 text-[var(--ink)]">Tell us about the job.</legend>
+          <legend className="font-display text-[22px] md:text-[26px] leading-tight mb-2 text-[var(--ink)]">Tell us about the job.</legend>
           <p className="text-[14px] text-[var(--ink-soft)] mb-6">A few sentences is plenty. Size, location, anything you've noticed.</p>
           <label htmlFor="details" className="sr-only">Job details</label>
           <textarea
@@ -290,7 +290,7 @@ export function QuoteWizard() {
       {step === 2 && (
         <fieldset className="space-y-5">
           <div>
-            <legend className="font-display text-[30px] md:text-[34px] leading-tight mb-2 text-[var(--ink)]">How do we reach you?</legend>
+            <legend className="font-display text-[22px] md:text-[26px] leading-tight mb-2 text-[var(--ink)]">How do we reach you?</legend>
             <p className="text-[14px] text-[var(--ink-soft)]">We only use this to reply about the {SERVICES.find(s => s.key === service)?.title.toLowerCase()} job.</p>
           </div>
 

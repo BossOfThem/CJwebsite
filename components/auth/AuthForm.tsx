@@ -58,7 +58,7 @@ export function AuthForm({
             autoComplete={f.autoComplete}
             placeholder={f.placeholder}
             required
-            className="w-full rounded-xl border border-[var(--line)] bg-[var(--bg)] p-3.5 text-[1.0625rem] min-h-[52px] focus:border-[var(--brand)] focus:ring-2 focus:ring-[var(--brand)]/20 outline-none"
+            className="w-full rounded-sm border border-[var(--line)] bg-[var(--bg)] p-3.5 text-[1.0625rem] min-h-[52px] font-sans focus:border-[var(--brand)] focus:ring-2 focus:ring-[var(--brand)]/20 outline-none"
           />
         </div>
       ))}
@@ -67,8 +67,10 @@ export function AuthForm({
         type="submit"
         disabled={pending}
         className={cn(
-          "w-full inline-flex items-center justify-center gap-2 rounded-xl text-white px-6 py-3 font-bold min-h-[56px] disabled:opacity-60",
-          accent === "brand" ? "bg-[var(--brand)] hover:bg-[#0a2f49]" : "bg-[var(--danger)] hover:bg-[#a61b1b]",
+          "w-full inline-flex items-center justify-center gap-2 rounded-sm text-white px-6 py-3 font-bold font-sans min-h-[56px] disabled:opacity-60 transition-colors",
+          accent === "brand"
+            ? "bg-[var(--brand)] hover:bg-[color-mix(in_oklab,var(--brand)_88%,#000_12%)]"
+            : "bg-[var(--danger)] hover:bg-[color-mix(in_oklab,var(--danger)_88%,#000_12%)]",
         )}
       >
         {pending && <Loader2 className="size-4 animate-spin" aria-hidden />}

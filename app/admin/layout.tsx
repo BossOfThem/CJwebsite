@@ -30,7 +30,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     <div className="min-h-screen grid md:grid-cols-[260px_1fr] bg-[var(--bg)]">
       <aside className="hidden md:flex flex-col border-r border-[var(--line)] bg-[var(--bg-raised)] p-5">
         <Link href="/" className="flex items-center gap-2 font-black text-lg tracking-tight">
-          <span className="inline-flex size-8 items-center justify-center rounded-lg bg-[var(--brand)] text-white">
+          <span className="inline-flex size-8 items-center justify-center rounded-sm bg-[var(--brand)] text-white">
             <ShieldCheck className="size-4" aria-hidden />
           </span>
           {BUSINESS.shortName}
@@ -44,7 +44,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               <Link
                 key={href}
                 href={href}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[var(--ink-soft)] hover:bg-[var(--bg)] hover:text-[var(--ink)] font-medium"
+                className="flex items-center gap-3 px-3 py-2.5 rounded-sm text-[var(--ink-soft)] hover:bg-[var(--bg)] hover:text-[var(--ink)] font-medium font-sans"
               >
                 <Icon className="size-4" aria-hidden />
                 {label}
@@ -59,7 +59,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             {roleLabel(role)}
           </div>
           <form action={signOutAction} className="mt-3">
-            <button className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-[var(--line)] px-3 py-2 text-sm font-medium hover:bg-[var(--bg)]">
+            <button className="w-full inline-flex items-center justify-center gap-2 rounded-sm border border-[var(--line)] px-3 py-2 text-sm font-medium font-sans hover:bg-[var(--bg)]">
               <LogOut className="size-4" aria-hidden /> Sign out
             </button>
           </form>
@@ -76,7 +76,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         </form>
       </div>
 
-      <main className="p-5 md:p-10">{children}</main>
+      <main className="p-5 md:p-10 font-sans">{children}</main>
     </div>
   );
 }

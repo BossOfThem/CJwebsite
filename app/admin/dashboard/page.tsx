@@ -38,7 +38,7 @@ export default async function AdminDashboard() {
         </div>
         <Link
           href="/admin/leads"
-          className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] text-white px-4 py-2.5 font-semibold min-h-[48px]"
+          className="inline-flex items-center gap-2 rounded-sm bg-[var(--brand)] text-white px-4 py-2.5 font-semibold min-h-[48px]"
         >
           <Inbox className="size-4" aria-hidden />
           Open inbox
@@ -50,7 +50,7 @@ export default async function AdminDashboard() {
           const meta = STATUS_META[k];
           const Icon = meta.icon;
           return (
-            <div key={k} className="rounded-2xl border border-[var(--line)] bg-[var(--bg-raised)] p-4">
+            <div key={k} className="rounded-sm border border-[var(--line)] bg-[var(--bg-raised)] p-4">
               <div className="flex items-center justify-between">
                 <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${meta.color}`}>
                   <Icon className="size-3.5" aria-hidden /> {meta.label}
@@ -68,7 +68,7 @@ export default async function AdminDashboard() {
           <Link href="/admin/leads" className="text-sm font-semibold text-[var(--brand)]">View all →</Link>
         </div>
         {recent.length === 0 ? (
-          <div className="rounded-2xl border-2 border-dashed border-[var(--line)] p-10 text-center">
+          <div className="rounded-sm border-2 border-dashed border-[var(--line)] p-10 text-center">
             <Inbox className="size-8 mx-auto text-[var(--ink-mute)]" aria-hidden />
             <p className="mt-3 font-semibold">No leads yet.</p>
             <p className="mt-1 text-sm text-[var(--ink-soft)]">
@@ -76,7 +76,7 @@ export default async function AdminDashboard() {
             </p>
           </div>
         ) : (
-          <ul className="divide-y divide-[var(--line)] rounded-2xl border border-[var(--line)] bg-[var(--bg-raised)] overflow-hidden" role="list">
+          <ul className="divide-y divide-[var(--line)] rounded-sm border border-[var(--line)] bg-[var(--bg-raised)] overflow-hidden" role="list">
             {recent.map((l) => (
               <li key={l.id} className="p-4 flex flex-wrap items-center justify-between gap-3">
                 <div className="min-w-0">
@@ -108,7 +108,7 @@ function QuickAction({ href, icon: Icon }: { href: string; icon: React.Component
   return (
     <a
       href={href}
-      className="inline-flex items-center justify-center size-9 rounded-lg border border-[var(--line)] hover:border-[var(--brand)] hover:text-[var(--brand)]"
+      className="inline-flex items-center justify-center size-9 rounded-sm border border-[var(--line)] hover:border-[var(--brand)] hover:text-[var(--brand)]"
       aria-label="Quick contact"
     >
       <Icon className="size-4" aria-hidden />
