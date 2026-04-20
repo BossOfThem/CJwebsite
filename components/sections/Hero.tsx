@@ -6,29 +6,40 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate bg-[var(--shadow-bg)] text-[var(--shadow-ink)] min-h-[92vh] flex flex-col scroll-mt-20"
+      data-surface="dark"
+      className="relative isolate bg-[var(--shadow-bg)] text-[var(--shadow-ink)] min-h-[96vh] flex flex-col scroll-mt-20 paper-grain-dark"
       aria-labelledby="hero-heading"
     >
-      {/* Full-bleed photo */}
-      <img
-        src={IMAGES.hero}
-        alt=""
-        aria-hidden
-        className="absolute inset-0 -z-10 h-full w-full object-cover opacity-60"
-      />
+      {/* Full-bleed photo, treated duotone */}
+      <div aria-hidden className="absolute inset-0 -z-10 duotone-ink">
+        <img
+          src={IMAGES.hero}
+          alt=""
+          className="h-full w-full object-cover"
+        />
+      </div>
       {/* Tint: warm darken bottom, lighten top-right for depth */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-[rgba(20,17,13,0.35)] via-[rgba(20,17,13,0.55)] to-[rgba(20,17,13,0.92)]"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-[rgba(20,17,13,0.45)] via-[rgba(20,17,13,0.65)] to-[rgba(20,17,13,0.96)]"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(224,160,51,0.25),transparent_55%)]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(224,160,51,0.32),transparent_55%)]"
       />
 
-      <div className="relative flex-1 flex flex-col justify-end mx-auto max-w-6xl w-full px-6 md:px-10 pt-28 md:pt-32 pb-14 md:pb-20">
+      {/* Top work-order strip */}
+      <div className="relative z-10 border-b border-[var(--bone)]/15 bg-[rgba(20,17,13,0.55)] backdrop-blur-sm">
+        <div className="mx-auto max-w-6xl px-6 md:px-10 flex items-center justify-between gap-6 py-2.5 font-mono text-[10px] md:text-[11px] uppercase tracking-[0.24em] text-[var(--bone)]/70">
+          <span className="flex items-center gap-2"><span className="size-1.5 rounded-full bg-[var(--amber-on-dark)]" aria-hidden />Work order {new Date().getFullYear()}-{String(new Date().getMonth()+1).padStart(2,"0")}</span>
+          <span className="hidden sm:inline">{BUSINESS.credentials.licenseNumber}</span>
+          <span className="hidden md:inline">{BUSINESS.hours}</span>
+        </div>
+      </div>
+
+      <div className="relative flex-1 flex flex-col justify-end mx-auto max-w-6xl w-full px-6 md:px-10 pt-16 md:pt-20 pb-14 md:pb-20">
         <p className="eyebrow rise flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-[var(--amber)]" aria-hidden />
+          <span className="size-1.5 rounded-full bg-[var(--amber-on-dark)]" aria-hidden />
           On the clock today &nbsp;/&nbsp; {BUSINESS.address.city}, {BUSINESS.address.region}
         </p>
 

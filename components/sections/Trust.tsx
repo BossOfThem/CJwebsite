@@ -16,10 +16,14 @@ export function Trust() {
   return (
     <section
       id="why"
-      className="relative bg-wood text-[var(--bone)] py-24 md:py-32 scroll-mt-20"
+      data-surface="dark"
+      className="relative bg-wood text-[var(--bone)] py-24 md:py-36 scroll-mt-20 overflow-hidden paper-grain-dark"
       aria-labelledby="trust-heading"
     >
-      <div aria-hidden className="absolute inset-0 bg-grid-light opacity-40 pointer-events-none" />
+      <div aria-hidden className="absolute inset-0 bg-grid-light opacity-30 pointer-events-none" />
+      <div aria-hidden className="absolute -top-10 -right-6 md:right-12 watermark-num select-none">
+        {BUSINESS.yearsInBusiness}
+      </div>
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div className="max-w-xl">
@@ -40,10 +44,12 @@ export function Trust() {
 
         <ul className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3" role="list">
           {items.map((it, i) => (
-            <li key={it.title} className="border-t border-[var(--bone)]/25 pt-5">
-              <div className="flex items-center gap-3">
-                <it.Icon className="size-5 text-[var(--amber-on-dark)]" aria-hidden strokeWidth={1.8} />
-                <p className="font-mono text-[12px] font-bold tabular-nums tracking-[0.22em] text-[var(--amber-on-dark)]">
+            <li key={it.title} className="relative border-t-2 border-[var(--amber-on-dark)]/35 pt-6 group">
+              <div className="flex items-center justify-between gap-3">
+                <span className="inline-flex items-center justify-center size-11 rounded-sm border border-[var(--amber-on-dark)]/50 bg-[rgba(224,160,51,0.08)]">
+                  <it.Icon className="size-5 text-[var(--amber-on-dark)]" aria-hidden strokeWidth={1.8} />
+                </span>
+                <p className="font-display text-[42px] md:text-[52px] leading-none tabular-nums text-[var(--amber-on-dark)]/30 group-hover:text-[var(--amber-on-dark)]/60 transition-colors">
                   {String(i + 1).padStart(2, "0")}
                 </p>
               </div>

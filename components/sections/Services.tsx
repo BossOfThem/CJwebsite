@@ -40,31 +40,32 @@ export function Services() {
                 className="group block"
                 aria-label={`Get a quote for ${s.title}`}
               >
-                <div className="relative overflow-hidden rounded-sm border border-[var(--line)] bg-[var(--ink)] aspect-[4/5]">
+                <div className="relative overflow-hidden rounded-sm border border-[var(--line)] bg-[var(--ink)] aspect-[4/5] duotone-ink">
                   <img
                     src={IMAGES.services[s.key as ServiceKey]}
                     alt=""
                     aria-hidden
-                    className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-[1.04]"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
                   />
                   <div
                     aria-hidden
-                    className="absolute inset-0 bg-gradient-to-t from-[rgba(20,17,13,0.85)] via-[rgba(20,17,13,0.25)] to-transparent"
+                    className="absolute inset-0 z-[1] bg-gradient-to-t from-[rgba(20,17,13,0.92)] via-[rgba(20,17,13,0.35)] to-transparent"
                   />
-                  <span className="absolute top-4 left-4 font-mono text-[11px] tracking-[0.18em] uppercase text-[var(--bone)]/80">
-                    {String(i + 1).padStart(2, "0")} / {String(SERVICES.length).padStart(2, "0")}
+                  <span className="absolute top-4 left-4 z-[2] stamp text-[var(--amber-on-dark)]">
+                    {String(i + 1).padStart(2, "0")} &middot; {s.key}
                   </span>
-                  <span className="absolute top-4 right-4 inline-flex items-center justify-center size-9 rounded-full bg-[var(--amber)] text-[var(--ink)] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="absolute top-4 right-4 z-[2] inline-flex items-center justify-center size-9 rounded-sm bg-[var(--amber-on-dark)] text-[var(--ink)] translate-x-2 -translate-y-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300">
                     <ArrowUpRight className="size-4" aria-hidden />
                   </span>
-                  <div className="absolute bottom-0 inset-x-0 p-5">
-                    <h3 className="font-display text-[28px] md:text-[34px] leading-[0.95] text-[var(--bone)]">
+                  <div className="absolute bottom-0 inset-x-0 p-5 z-[2]">
+                    <h3 className="font-display text-[32px] md:text-[40px] leading-[0.92] text-[var(--bone)]">
                       {s.title}
                     </h3>
-                    <p className="mt-2 text-[13px] text-[var(--bone)]/75 max-w-xs leading-snug">
+                    <p className="mt-2 text-[13px] text-[var(--bone)]/85 max-w-xs leading-snug font-sans">
                       {s.blurb}
                     </p>
                   </div>
+                  <div aria-hidden className="absolute left-5 right-5 bottom-4 z-[2] h-[2px] bg-[var(--amber-on-dark)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                 </div>
                 <div className="mt-4 flex items-baseline gap-3 text-[13px] text-[var(--ink-soft)]">
                   <span className="font-mono tracking-[0.16em] uppercase text-[var(--ink-mute)]">Includes</span>

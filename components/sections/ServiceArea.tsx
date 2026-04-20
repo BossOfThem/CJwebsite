@@ -1,4 +1,4 @@
-import { BUSINESS, IMAGES } from "@/lib/config";
+import { BUSINESS } from "@/lib/config";
 import { SectionNav } from "@/components/nav/SectionNav";
 
 export function ServiceArea() {
@@ -44,19 +44,49 @@ export function ServiceArea() {
         </div>
 
         <div>
-          <div className="relative overflow-hidden rounded-sm border border-[var(--line)] bg-[var(--ink)] aspect-[4/3]">
-            <img
-              src={IMAGES.hero}
-              alt="Crew on a jobsite in Broward County"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover opacity-85"
-            />
-            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[rgba(20,17,13,0.75)] via-transparent to-transparent" />
-            <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest bg-[var(--ink)] text-[var(--amber-on-dark)] border border-[var(--amber-on-dark)]/40 px-2 py-1">
-              Jobsite
+          <div className="relative overflow-hidden rounded-sm border border-[var(--line-strong)] bg-blueprint aspect-[4/3]">
+            {/* compass + coords */}
+            <div aria-hidden className="absolute top-4 right-4 flex flex-col items-end gap-1 font-mono text-[10px] tracking-[0.22em] text-[var(--ink-mute)]">
+              <span>N</span>
+              <span className="h-10 w-[1px] bg-[var(--ink-mute)]" />
+              <span>25.98&deg;N</span>
+              <span>80.23&deg;W</span>
+            </div>
+            <span className="absolute top-4 left-4 stamp text-[var(--amber-on-light)] bg-[var(--paper)]">
+              Broward &middot; Active zones
             </span>
-            <p className="absolute bottom-3 left-3 right-3 font-display text-[20px] md:text-[24px] leading-tight text-[var(--bone)]">
-              Broward County &mdash; on the clock today.
+
+            {/* pins */}
+            <ul aria-hidden className="absolute inset-0">
+              {[
+                { top: "38%", left: "22%" },
+                { top: "48%", left: "34%" },
+                { top: "30%", left: "46%" },
+                { top: "58%", left: "52%" },
+                { top: "42%", left: "64%" },
+                { top: "26%", left: "72%" },
+                { top: "66%", left: "78%" },
+                { top: "52%", left: "82%" },
+              ].map((p, i) => (
+                <li
+                  key={i}
+                  className="absolute flex items-center gap-1.5"
+                  style={{ top: p.top, left: p.left }}
+                >
+                  <span className="relative flex size-2.5">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--amber-on-light)] opacity-60 animate-ping" />
+                    <span className="relative inline-flex size-2.5 rounded-full bg-[var(--amber-on-light)] border border-[var(--ink)]" />
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            {/* horizon */}
+            <div aria-hidden className="absolute left-0 right-0 bottom-[30%] h-[2px] bg-[var(--ink-mute)]/30" />
+            <div aria-hidden className="absolute left-0 right-0 bottom-[30%] h-[1px] bg-[var(--amber-on-light)]/40" style={{ transform: "translateY(2px)" }} />
+
+            <p className="absolute bottom-4 left-4 right-4 font-display text-[22px] md:text-[28px] leading-[0.95] text-[var(--ink)]">
+              Broward County <span className="text-[var(--amber-on-light)]">&mdash; on the clock today.</span>
             </p>
           </div>
           <ul

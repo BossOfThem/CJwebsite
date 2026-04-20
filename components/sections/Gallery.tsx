@@ -27,28 +27,28 @@ export function Gallery() {
             <figure
               key={g.src}
               className={[
-                "relative overflow-hidden rounded-sm border border-[var(--line)] bg-[var(--ink)] group",
+                "relative overflow-hidden rounded-sm border border-[var(--line)] bg-[var(--ink)] group duotone-ink",
                 i === 0 && "md:col-span-2 md:row-span-2 aspect-square md:aspect-auto",
                 i >= 1 && "aspect-[4/5]",
-                i >= 2 && "duotone-ink",
               ].filter(Boolean).join(" ")}
             >
               <img
                 src={g.src}
                 alt={g.label}
                 loading={i > 1 ? "lazy" : "eager"}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
               />
-              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[rgba(20,17,13,0.75)] via-transparent to-transparent" />
-              <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest bg-[var(--ink)] text-[var(--amber-on-dark)] border border-[var(--amber-on-dark)]/40 px-2 py-1">
+              <div aria-hidden className="absolute inset-0 z-[1] bg-gradient-to-t from-[rgba(20,17,13,0.85)] via-transparent to-transparent" />
+              <span className="absolute top-3 left-3 z-[2] stamp text-[var(--amber-on-dark)] bg-[rgba(20,17,13,0.65)]">
                 {g.tag}
               </span>
-              <figcaption className="absolute bottom-3 left-3 right-3 font-display text-[18px] md:text-[22px] leading-tight text-[var(--bone)]">
+              <figcaption className="absolute bottom-4 left-4 right-4 z-[2] font-display text-[22px] md:text-[28px] leading-[0.95] text-[var(--bone)]">
                 {g.label}
               </figcaption>
-              <span className="absolute bottom-3 right-3 font-mono text-[11px] tabular-nums text-[var(--bone)]/85">
+              <span className="absolute bottom-4 right-4 z-[2] font-mono text-[11px] tabular-nums tracking-widest text-[var(--amber-on-dark)]">
                 {String(i + 1).padStart(2, "0")} / {String(IMAGES.gallery.length).padStart(2, "0")}
               </span>
+              <div aria-hidden className="absolute left-4 right-4 bottom-3 z-[2] h-[2px] bg-[var(--amber-on-dark)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             </figure>
           ))}
         </div>

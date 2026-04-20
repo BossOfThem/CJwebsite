@@ -113,6 +113,18 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+/* Subtle paper grain layered over the whole document */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' seed='5' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.14  0 0 0 0 0.12  0 0 0 0 0.09  0 0 0 0.10 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+/* Raise interactive content above the grain layer */
+body > * { position: relative; z-index: 2; }
 /* Forms & UI controls stay in humanist sans for readability */
 .font-sans,
 input, select, textarea,
@@ -234,12 +246,21 @@ input, select, textarea,
   background-color: #2A1F14;
   background-image:
     repeating-linear-gradient(
-      90deg,
-      rgba(0,0,0,0.25) 0 1px,
-      transparent 1px 7px,
-      rgba(0,0,0,0.15) 7px 8px,
-      transparent 8px 24px
+      87deg,
+      rgba(0,0,0,0.35) 0 1px,
+      transparent 1px 5px,
+      rgba(0,0,0,0.22) 5px 6px,
+      transparent 6px 14px,
+      rgba(0,0,0,0.18) 14px 15px,
+      transparent 15px 32px
     ),
+    repeating-linear-gradient(
+      93deg,
+      rgba(255,255,255,0.015) 0 1px,
+      transparent 1px 11px
+    ),
+    radial-gradient(ellipse at 20% 50%, rgba(58,43,29,1) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(35,24,16,1) 0%, transparent 60%),
     linear-gradient(180deg, #3A2B1D 0%, #231810 100%);
 }
 .bg-grid {
@@ -249,6 +270,78 @@ input, select, textarea,
 .bg-grid-light {
   background-image: radial-gradient(rgba(245,239,223,0.10) 1px, transparent 1px);
   background-size: 22px 22px;
+}
+
+/* Blueprint / engineering paper grid — for map/area section */
+.bg-blueprint {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(rgba(20,17,13,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,17,13,0.08) 1px, transparent 1px),
+    linear-gradient(rgba(20,17,13,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,17,13,0.04) 1px, transparent 1px);
+  background-size: 88px 88px, 88px 88px, 22px 22px, 22px 22px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+
+/* Paper grain — adds warmth/noise to flat surfaces. Inline SVG (no asset). */
+.paper-grain {
+  position: relative;
+}
+.paper-grain::before {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.14  0 0 0 0 0.12  0 0 0 0 0.09  0 0 0 0.12 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.paper-grain-dark::before {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='11' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.85  0 0 0 0.35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.paper-grain-dark { position: relative; }
+
+/* Trade stamp — ink-stamped chip */
+.stamp {
+  display: inline-flex; align-items: center; gap: 0.5ch;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  position: relative;
+}
+.stamp::after {
+  /* slight offset shadow for inked-stamp feel */
+  content: "";
+  position: absolute; inset: 0;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  transform: translate(2px, 2px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Tabular big-number background watermark */
+.watermark-num {
+  font-family: var(--font-oswald), Impact, sans-serif;
+  font-weight: 700;
+  font-size: clamp(8rem, 18vw, 18rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  font-feature-settings: "tnum";
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(245,239,223,0.08);
+  user-select: none;
+  pointer-events: none;
 }
 
 /* torn/rough divider — little trade character */
@@ -289,14 +382,14 @@ input, select, textarea,
   background: var(--ink);
 }
 .duotone-ink > img {
-  filter: grayscale(1) contrast(1.08) brightness(0.92);
+  filter: grayscale(1) contrast(1.15) brightness(0.85);
   mix-blend-mode: luminosity;
-  opacity: 0.88;
+  opacity: 0.82;
 }
 .duotone-ink::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(224,160,51,0.18) 0%, rgba(20,17,13,0.35) 100%);
+  background: linear-gradient(180deg, rgba(224,160,51,0.22) 0%, rgba(20,17,13,0.55) 100%);
   mix-blend-mode: color;
   pointer-events: none;
 }
