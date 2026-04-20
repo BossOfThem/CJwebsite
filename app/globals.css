@@ -15,9 +15,9 @@
   /* inks */
   --ink: #14110D;            /* warm near-black, for text on light */
   --ink-soft: #3D372C;
-  --ink-mute: #7A7263;
+  --ink-mute: #665F50;       /* darkened from #7A7263 → clear AA on paper */
   --line: #CFC6AE;
-  --line-strong: #A89C7E;
+  --line-strong: #9C8F70;    /* slightly darker for form borders */
 
   /* dark — hero/trust/footer bands */
   --shadow-bg: #141210;
@@ -26,18 +26,22 @@
   --shadow-ink-soft: #D4C9AC;   /* lifted for AA contrast on wood/concrete */
   --shadow-line: rgba(245,239,223,0.16);
 
-  /* accents */
-  --amber:   #E0A033;        /* warm amber, primary accent */
-  --amber-2: #B87212;        /* deeper ember for hover */
-  --ember:   #C2410C;        /* red-orange, used sparingly for highest-intent CTA */
-  --moss:    #4E5F3A;        /* supporting color if needed */
+  /* accents — surface-aware amber */
+  --amber-on-dark:  #E0A033;    /* warm amber, for dark surfaces (hero/trust/quote/footer) */
+  --amber-on-light: #B87212;    /* deeper amber, AA-safe on paper/bone */
+  --amber-ink:      var(--ink); /* always pair amber fill with ink text */
+  --amber:          var(--amber-on-dark); /* alias for back-compat */
+  --amber-2:        var(--amber-on-light); /* alias for back-compat */
+
+  --underline: color-mix(in oklab, var(--amber-on-light) 75%, var(--ink) 25%);
 
   --brand: var(--ink);
   --brand-ink: var(--bone);
 
   --success: #4E6F35;
   --danger:  #A83232;
-  --focus:   var(--amber);
+  --focus:   var(--amber-on-dark);
+  --focus-ring: color-mix(in oklab, var(--amber-on-dark) 70%, var(--ink) 30%);
 
   --radius-sm: 6px;
   --radius: 10px;
@@ -66,6 +70,10 @@
   --color-brand: var(--brand);
   --color-brand-ink: var(--brand-ink);
   --color-accent: var(--amber);
+  --color-amber: var(--amber);
+  --color-amber-on-dark: var(--amber-on-dark);
+  --color-amber-on-light: var(--amber-on-light);
+  --color-amber-ink: var(--amber-ink);
   --color-brand-2: var(--amber);
   --color-brand-2-ink: var(--ink);
   --color-success: var(--success);
@@ -106,15 +114,21 @@ body {
   line-height: 1.05;
 }
 
-/* Eyebrow — mono in amber */
+/* Eyebrow — mono, surface-aware amber */
 .eyebrow {
   font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 12px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
+  font-feature-settings: "tnum";
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--amber-on-light);   /* AA-safe default on paper */
   font-weight: 700;
 }
+/* On dark surfaces, opt into the brighter amber */
+[data-surface="dark"] .eyebrow,
+.bg-wood .eyebrow,
+.bg-concrete .eyebrow,
+.eyebrow-dark { color: var(--amber-on-dark); }
 .eyebrow-ink { color: var(--ink-mute); }
 
 /* buttons */
@@ -135,11 +149,17 @@ body {
 }
 .btn:active { transform: translateY(1px); }
 .btn-primary {
-  background: var(--amber);
+  background: var(--amber-on-dark);
   color: var(--ink);
-  box-shadow: inset 0 -3px 0 rgba(20,17,13,.18);
+  box-shadow: inset 0 -3px 0 rgba(20,17,13,.22);
 }
-.btn-primary:hover { background: #efb74a; }
+.btn-primary:hover { background: color-mix(in oklab, var(--amber-on-dark) 88%, #000 12%); }
+.btn-primary-on-light {
+  background: var(--amber-on-light);
+  color: var(--ink);
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,.22);
+}
+.btn-primary-on-light:hover { background: color-mix(in oklab, var(--amber-on-light) 85%, #000 15%); }
 .btn-dark {
   background: var(--ink);
   color: var(--bone);
@@ -161,11 +181,11 @@ body {
 
 /* focus ring */
 :focus-visible {
-  outline: 2px solid var(--amber);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
   border-radius: 2px;
 }
-::selection { background: var(--amber); color: var(--ink); }
+::selection { background: var(--amber-on-light); color: var(--bone); }
 
 /* rule */
 .rule { height: 1px; background: var(--line); width: 100%; }
