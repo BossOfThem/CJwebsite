@@ -1,3 +1,4 @@
+import { Star } from "lucide-react";
 import { SectionNav } from "@/components/nav/SectionNav";
 
 const REVIEWS = [
@@ -37,11 +38,11 @@ export function Testimonials() {
             <p className="eyebrow">05 &nbsp;/ &nbsp;Neighbors</p>
             <h2
               id="reviews-heading"
-              className="font-display mt-4 text-[48px] md:text-[84px] leading-[0.9] text-[var(--ink)]"
+              className="font-display mt-4 text-display-xl leading-[0.9] text-[var(--ink)]"
             >
               Folks we've already
               <br />
-              <span className="text-[var(--amber-2)]">shown up for.</span>
+              <span className="text-[var(--amber-on-light)]">shown up for.</span>
             </h2>
           </div>
           <p className="md:max-w-xs text-[15px] text-[var(--ink-soft)]">
@@ -57,13 +58,20 @@ export function Testimonials() {
             >
               <span
                 aria-hidden
-                className="absolute -top-5 left-6 font-display text-[90px] leading-none text-[var(--amber)] select-none"
+                className="absolute -top-5 left-6 font-display text-[90px] leading-none text-[var(--amber-on-light)] select-none"
               >
                 &ldquo;
               </span>
-              <p className="font-mono text-[11px] tabular-nums tracking-[0.2em] text-[var(--ink-mute)]">
-                {String(i + 1).padStart(2, "0")}
-              </p>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-0.5" aria-label="5 out of 5 stars">
+                  {Array.from({ length: 5 }).map((_, s) => (
+                    <Star key={s} className="size-3.5 text-[var(--amber-on-light)] fill-current" aria-hidden />
+                  ))}
+                </div>
+                <p className="font-mono text-[11px] tabular-nums tracking-[0.2em] text-[var(--ink-mute)]">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+              </div>
               <blockquote className="mt-4 font-display text-[22px] md:text-[24px] leading-[1.15] text-[var(--ink)]">
                 {r.quote}
               </blockquote>

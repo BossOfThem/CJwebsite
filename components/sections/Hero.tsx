@@ -34,11 +34,11 @@ export function Hero() {
 
         <h1
           id="hero-heading"
-          className="font-display mt-5 text-[56px] leading-[0.92] sm:text-[96px] md:text-[136px] md:leading-[0.88] rise-2"
+          className="font-display mt-5 text-display-2xl leading-[0.92] md:leading-[0.88] rise-2"
         >
           Built right.
           <br />
-          <span className="text-[var(--amber)]">Built once.</span>
+          <span className="text-[var(--amber-on-dark)]">Built once.</span>
         </h1>
 
         <p className="mt-8 max-w-2xl text-[17px] md:text-[20px] text-[var(--shadow-ink-soft)] leading-[1.55] rise-3">
@@ -87,7 +87,7 @@ export function Hero() {
 function Stat({ k, v }: { k: string; v: string }) {
   return (
     <div>
-      <dt className="font-display text-[40px] md:text-[52px] leading-none text-[var(--bone)]">
+      <dt className="font-display text-[var(--fs-6)] leading-none text-[var(--bone)]">
         {k}
       </dt>
       <dd className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--shadow-ink-soft)]">

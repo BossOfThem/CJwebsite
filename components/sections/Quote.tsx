@@ -13,12 +13,16 @@ export function Quote() {
           <p className="eyebrow">03 &nbsp;/ &nbsp;Get a quote</p>
           <h2
             id="quote-heading"
-            className="font-display mt-4 text-[48px] md:text-[84px] leading-[0.9] text-[var(--bone)]"
+            className="font-display mt-4 text-display-xl leading-[0.9] text-[var(--bone)]"
           >
             Tell us what's broke.
             <br />
-            <span className="text-[var(--amber)]">We'll tell you what it costs.</span>
+            <span className="text-[var(--amber-on-dark)]">We'll tell you what it costs.</span>
           </h2>
+          <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--amber-on-dark)]">
+            {/* TODO: Carlos to approve storm-season copy */}
+            Storm season ready — free insurance inspection
+          </p>
           <p className="mt-6 text-[16px] text-[var(--bone)]/90 max-w-md leading-relaxed">
             Prefer not to type? Pick the fastest way to reach us. A real person picks up — within the hour, business hours.
           </p>

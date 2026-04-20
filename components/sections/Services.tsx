@@ -16,7 +16,7 @@ export function Services() {
             <p className="eyebrow">01 &nbsp;/ &nbsp;Trades</p>
             <h2
               id="services-heading"
-              className="font-display mt-4 text-[48px] md:text-[84px] leading-[0.9] text-[var(--ink)]"
+              className="font-display mt-4 text-display-xl leading-[0.9] text-[var(--ink)]"
             >
               One crew.
               <br />

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Oswald, JetBrains_Mono } from "next/font/google";
+import { Inter, Oswald, JetBrains_Mono, Lora } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { BUSINESS } from "@/lib/config";
@@ -20,6 +20,13 @@ const display = Oswald({
 const mono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+const serif = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -60,11 +67,11 @@ export default function RootLayout({
   const tawkWidget = BUSINESS.tawkWidgetId;
 
   return (
-    <html lang="en" className={`${inter.variable} ${display.variable} ${mono.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} ${display.variable} ${mono.variable} ${serif.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-[var(--ink)] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-[var(--ink)] focus:text-white focus:px-4 focus:py-2 focus:rounded-sm"
         >
           Skip to main content
         </a>

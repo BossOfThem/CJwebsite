@@ -13,11 +13,11 @@ export function ServiceArea() {
           <p className="eyebrow">06 &nbsp;/ &nbsp;Coverage</p>
           <h2
             id="area-heading"
-            className="font-display mt-4 text-[48px] md:text-[84px] leading-[0.9] text-[var(--ink)]"
+            className="font-display mt-4 text-display-xl leading-[0.9] text-[var(--ink)]"
           >
             {BUSINESS.address.city} and the
             <br />
-            <span className="text-[var(--amber-2)]">rest of Broward.</span>
+            <span className="text-[var(--amber-on-light)]">rest of Broward.</span>
           </h2>
           <p className="mt-6 text-[15px] text-[var(--ink-soft)] max-w-md leading-relaxed">
             Based in {BUSINESS.address.city}, {BUSINESS.address.region}. If your town's not listed, ask anyway — we travel for bigger jobs.
@@ -52,7 +52,7 @@ export function ServiceArea() {
               className="absolute inset-0 h-full w-full object-cover opacity-85"
             />
             <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[rgba(20,17,13,0.75)] via-transparent to-transparent" />
-            <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest bg-[var(--amber)]/90 text-[var(--ink)] px-2 py-1">
+            <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest bg-[var(--ink)] text-[var(--amber-on-dark)] border border-[var(--amber-on-dark)]/40 px-2 py-1">
               Jobsite
             </span>
             <p className="absolute bottom-3 left-3 right-3 font-display text-[20px] md:text-[24px] leading-tight text-[var(--bone)]">
@@ -68,7 +68,7 @@ export function ServiceArea() {
                 key={town}
                 className="flex items-baseline gap-3 font-mono text-[13px] uppercase tracking-[0.14em] text-[var(--ink)]"
               >
-                <span className="size-1.5 rounded-full bg-[var(--amber)] shrink-0" aria-hidden />
+                <span className="size-1.5 rounded-full bg-[var(--amber-on-light)] shrink-0" aria-hidden />
                 <span className="tabular-nums text-[var(--ink-mute)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>

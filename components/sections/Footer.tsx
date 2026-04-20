@@ -15,7 +15,7 @@ export function Footer() {
       <div className="relative mx-auto max-w-6xl px-6 md:px-10 pt-24 pb-10">
         <div className="border-b border-[var(--bone)]/25 pb-14">
           <p className="eyebrow">08 &nbsp;/ &nbsp;Call us</p>
-          <div className="mt-5 font-display text-[64px] md:text-[120px] leading-[0.88] tracking-[-0.01em] text-[var(--bone)]">
+          <div className="mt-5 font-display text-display-3xl leading-[0.88] tracking-[-0.01em] text-[var(--bone)]">
             {displayName}
           </div>
           <p className="mt-6 max-w-xl text-[15px] text-[var(--bone)]/85 leading-relaxed">

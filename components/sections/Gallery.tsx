@@ -10,11 +10,11 @@ export function Gallery() {
             <p className="eyebrow">04 &nbsp;/ &nbsp;Recent work</p>
             <h2
               id="gallery-heading"
-              className="font-display mt-4 text-[48px] md:text-[84px] leading-[0.9] text-[var(--ink)]"
+              className="font-display mt-4 text-display-xl leading-[0.9] text-[var(--ink)]"
             >
               Receipts,
               <br />
-              <span className="text-[var(--amber-2)]">not promises.</span>
+              <span className="text-[var(--amber-on-light)]">not promises.</span>
             </h2>
           </div>
           <p className="md:max-w-xs text-[15px] text-[var(--ink-soft)]">
@@ -43,7 +43,7 @@ export function Gallery() {
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />
               <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[rgba(20,17,13,0.75)] via-transparent to-transparent" />
-              <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest bg-[var(--amber)]/90 text-[var(--ink)] px-2 py-1">
+              <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest bg-[var(--ink)] text-[var(--amber-on-dark)] border border-[var(--amber-on-dark)]/40 px-2 py-1">
                 {g.tag}
               </span>
               <figcaption className="absolute bottom-3 left-3 right-3 font-display text-[18px] md:text-[22px] leading-tight text-[var(--bone)]">

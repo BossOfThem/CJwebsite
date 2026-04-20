@@ -44,11 +44,11 @@ export function FAQ() {
           <p className="eyebrow">07 &nbsp;/ &nbsp;Straight answers</p>
           <h2
             id="faq-heading"
-            className="font-display mt-4 text-[48px] md:text-[84px] leading-[0.9] text-[var(--ink)]"
+            className="font-display mt-4 text-display-xl leading-[0.9] text-[var(--ink)]"
           >
             Questions we get
             <br />
-            <span className="text-[var(--amber-2)]">every week.</span>
+            <span className="text-[var(--amber-on-light)]">every week.</span>
           </h2>
         </div>
 
