@@ -71,7 +71,7 @@ const U = (id: string, w = 1600) =>
 
 export const IMAGES = {
   // Full-bleed hero: residential handyman feel, warm tone, room for overlay copy
-  hero: U("photo-1589939705384-5185137a7f0f", 1920),
+  hero: U("photo-1581094794329-c8112a89af12", 1920),
   // Marquee strip under hero
   marquee: [
     U("photo-1581094794329-c8112a89af12", 800),
