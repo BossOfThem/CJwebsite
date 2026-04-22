@@ -70,8 +70,11 @@ const U = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 export const IMAGES = {
-  // Full-bleed hero: residential handyman feel, warm tone, room for overlay copy
-  hero: U("photo-1581094794329-c8112a89af12", 1920),
+  // Full-bleed hero: Anne Nygård "Claw hammer and nails" on Unsplash
+  //   https://unsplash.com/photos/yYRAvcPrWms
+  // If this URL ever fails to resolve, replace with any image URL (Unsplash,
+  // S3, Cloudinary, /public/...) — Hero.tsx reads it from IMAGES.hero.
+  hero: "https://source.unsplash.com/yYRAvcPrWms/1200x1200",
   // Marquee strip under hero
   marquee: [
     U("photo-1581094794329-c8112a89af12", 800),
