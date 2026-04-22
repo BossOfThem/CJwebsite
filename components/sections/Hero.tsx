@@ -97,30 +97,57 @@ function ToolsEmblem({ establishedYear }: { establishedYear: number }) {
       {/* plate */}
       <div aria-hidden className="absolute inset-0 rounded-sm border border-[var(--bone)]/18 bg-[rgba(20,17,13,0.55)]" />
 
-      {/* photo — duotone-inked for rugged-craftsman aesthetic */}
-      <div className="absolute inset-4 overflow-hidden rounded-sm border border-[var(--amber-on-dark)]/35 duotone-ink">
-        <img
-          src={IMAGES.hero}
-          alt="Claw hammer and nails on a wooden workbench"
-          className="h-full w-full object-cover"
-        />
-      </div>
+      {/* inner rule */}
+      <div aria-hidden className="absolute inset-4 border border-[var(--amber-on-dark)]/35 rounded-sm" />
 
-      {/* scrim so stamp text stays legible on any image */}
-      <div
-        aria-hidden
-        className="absolute inset-4 rounded-sm bg-gradient-to-t from-[rgba(20,17,13,0.75)] via-[rgba(20,17,13,0.15)] to-[rgba(20,17,13,0.45)] pointer-events-none"
-      />
+      <svg
+        viewBox="0 0 320 320"
+        className="absolute inset-0 h-full w-full p-10"
+        role="img"
+        aria-label="Crossed hammer and wrench"
+      >
+        {/* WRENCH */}
+        <g
+          stroke="var(--amber-on-dark)"
+          strokeWidth="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+          transform="rotate(-45 160 160)"
+        >
+          <line x1="70" y1="160" x2="220" y2="160" />
+          <path d="M220 160 L260 130 L260 100 L240 90 L220 110 L240 130 L220 150" />
+          <path d="M220 160 L260 190 L260 220 L240 230 L220 210 L240 190 L220 170" />
+          <line x1="95" y1="152" x2="130" y2="152" />
+          <line x1="95" y1="168" x2="130" y2="168" />
+        </g>
+
+        {/* HAMMER */}
+        <g
+          stroke="var(--bone)"
+          strokeWidth="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+          transform="rotate(45 160 160)"
+        >
+          <line x1="80" y1="160" x2="210" y2="160" />
+          <rect x="205" y="128" width="60" height="64" rx="4" />
+          <path d="M230 128 L244 108 L258 128" />
+          <path d="M238 124 L244 116 L250 124" />
+          <line x1="80" y1="148" x2="80" y2="172" />
+        </g>
+      </svg>
 
       {/* stamp text along bottom */}
-      <div className="absolute left-0 right-0 bottom-6 flex items-center justify-between px-8 font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--bone)]/80">
+      <div className="absolute left-0 right-0 bottom-6 flex items-center justify-between px-8 font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--bone)]/70">
         <span>Est. {establishedYear}</span>
         <span className="text-[var(--amber-on-dark)]">Trade Mark</span>
         <span>{BUSINESS.address.region}</span>
       </div>
 
       {/* stamp text along top */}
-      <div className="absolute left-0 right-0 top-6 flex items-center justify-center px-8 font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--bone)]/70">
+      <div className="absolute left-0 right-0 top-6 flex items-center justify-center px-8 font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--bone)]/55">
         <span>{BUSINESS.address.city} &middot; Broward</span>
       </div>
     </div>
