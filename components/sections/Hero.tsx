@@ -2,16 +2,9 @@ import Link from "next/link";
 import { Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { BUSINESS, buildWhatsAppLink, prefillForService } from "@/lib/config";
 
-type LogRow = { id: string; type: string; where: string; status: string };
-
-const recentJobs: LogRow[] = [
-  { id: "WO-0412", type: "Door realignment + weatherstrip", where: "Pembroke Pines", status: "Closed" },
-  { id: "WO-0411", type: "Water-damaged drywall repair",    where: "Hollywood",       status: "Closed" },
-  { id: "WO-0410", type: "Tile re-grout, guest bath",       where: "Miramar",         status: "Closed" },
-  { id: "WO-0409", type: "Driveway pressure wash",          where: "Davie",           status: "Closed" },
-];
-
 export function Hero() {
+  const establishedYear = new Date().getFullYear() - BUSINESS.yearsInBusiness;
+
   return (
     <section
       id="top"
@@ -88,59 +81,87 @@ export function Hero() {
           </dl>
         </div>
 
-        {/* RIGHT: work-order log card (no photo) */}
-        <aside
-          aria-labelledby="recent-log-heading"
-          className="relative rounded-sm border border-[var(--bone)]/18 bg-[rgba(20,17,13,0.55)] backdrop-blur-sm p-5 md:p-6 shadow-lg"
-        >
-          <header className="flex items-baseline justify-between gap-3 border-b border-[var(--shadow-line)] pb-3">
-            <p id="recent-log-heading" className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bone)]/75">
-              This week&rsquo;s log
-            </p>
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--amber-on-dark)]">
-              {recentJobs.length} closed
-            </span>
-          </header>
-
-          <ul role="list" className="mt-4 divide-y divide-[var(--shadow-line)]">
-            {recentJobs.map((j) => (
-              <li key={j.id} className="py-3 flex items-start gap-3">
-                <span className="mt-1 font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--bone)]/55 min-w-[58px]">
-                  {j.id}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <p className="text-[14px] md:text-[15px] text-[var(--bone)] leading-snug">
-                    {j.type}
-                  </p>
-                  <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--bone)]/65">
-                    {j.where}
-                  </p>
-                </div>
-                <span className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--amber-on-dark)]/85">
-                  {j.status}
-                </span>
-              </li>
-            ))}
-          </ul>
-
-          <footer className="mt-4 pt-3 border-t border-[var(--shadow-line)] flex items-center justify-between gap-3">
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/60">
-              {BUSINESS.address.city} &middot; Broward
-            </span>
-            <Link
-              href="#work"
-              className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--amber-on-dark)] hover:text-[var(--bone)] inline-flex items-center gap-1.5"
-            >
-              See recent work
-              <ArrowRight className="size-3" aria-hidden />
-            </Link>
-          </footer>
-        </aside>
+        {/* RIGHT: crossed hammer + wrench emblem */}
+        <ToolsEmblem establishedYear={establishedYear} />
       </div>
 
       {/* torn-paper transition into the next section */}
       <div aria-hidden className="rough-top absolute -bottom-[1px] inset-x-0" />
     </section>
+  );
+}
+
+function ToolsEmblem({ establishedYear }: { establishedYear: number }) {
+  return (
+    <div
+      aria-hidden
+      className="relative mx-auto w-full max-w-[380px] aspect-square"
+    >
+      {/* outer plate */}
+      <div className="absolute inset-0 rounded-sm border border-[var(--bone)]/18 bg-[rgba(20,17,13,0.55)]" />
+
+      {/* inner rule */}
+      <div className="absolute inset-4 border border-[var(--amber-on-dark)]/35 rounded-sm" />
+
+      <svg
+        viewBox="0 0 320 320"
+        className="absolute inset-0 h-full w-full p-10"
+        role="img"
+        aria-label="Crossed hammer and wrench"
+      >
+        {/* WRENCH (rotates top-left to bottom-right) */}
+        <g
+          stroke="var(--amber-on-dark)"
+          strokeWidth="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+          transform="rotate(-45 160 160)"
+        >
+          {/* handle */}
+          <line x1="70" y1="160" x2="220" y2="160" />
+          {/* jaw (upper) */}
+          <path d="M220 160 L260 130 L260 100 L240 90 L220 110 L240 130 L220 150" />
+          {/* jaw (lower mirror) */}
+          <path d="M220 160 L260 190 L260 220 L240 230 L220 210 L240 190 L220 170" />
+          {/* handle grip */}
+          <line x1="95" y1="152" x2="130" y2="152" />
+          <line x1="95" y1="168" x2="130" y2="168" />
+        </g>
+
+        {/* HAMMER (rotates bottom-left to top-right) */}
+        <g
+          stroke="var(--bone)"
+          strokeWidth="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+          transform="rotate(45 160 160)"
+        >
+          {/* handle */}
+          <line x1="80" y1="160" x2="210" y2="160" />
+          {/* head block */}
+          <rect x="205" y="128" width="60" height="64" rx="4" />
+          {/* claw (the V at the top of the head) */}
+          <path d="M230 128 L244 108 L258 128" />
+          <path d="M238 124 L244 116 L250 124" />
+          {/* handle cap */}
+          <line x1="80" y1="148" x2="80" y2="172" />
+        </g>
+      </svg>
+
+      {/* stamp text along bottom */}
+      <div className="absolute left-0 right-0 bottom-6 flex items-center justify-between px-8 font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--bone)]/70">
+        <span>Est. {establishedYear}</span>
+        <span className="text-[var(--amber-on-dark)]">Trade Mark</span>
+        <span>{BUSINESS.address.region}</span>
+      </div>
+
+      {/* stamp text along top */}
+      <div className="absolute left-0 right-0 top-6 flex items-center justify-center px-8 font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--bone)]/55">
+        <span>{BUSINESS.address.city} &middot; Broward</span>
+      </div>
+    </div>
   );
 }
 
